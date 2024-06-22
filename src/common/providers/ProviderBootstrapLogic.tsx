@@ -30,11 +30,8 @@ export function ProviderBootstrapLogic(props: { children: React.ReactNode }) {
 
   // redirect Chat -> News if fresh news
   const isRedirecting = React.useMemo(() => {
-    if (doRedirectToNews) {
       // the async is important (esp. on strict mode second pass)
-      navigateToNews().then(() => markNewsAsSeen());
-      return true;
-    }
+    markNewsAsSeen();
     return false;
   }, [doRedirectToNews]);
 

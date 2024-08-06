@@ -21,7 +21,7 @@ import { ProviderTRPCQuerySettings } from '~/common/providers/ProviderTRPCQueryS
 import { ProviderTheming } from '~/common/providers/ProviderTheming';
 import { hasGoogleAnalytics, OptionalGoogleAnalytics } from '~/common/components/GoogleAnalytics';
 import { isVercelFromFrontend } from '~/common/util/pwaUtils';
-
+import { Analytics } from "@vercel/analytics/react"
 
 const MyApp = ({ Component, emotionCache, pageProps }: MyAppProps) =>
   <>
@@ -49,6 +49,7 @@ const MyApp = ({ Component, emotionCache, pageProps }: MyAppProps) =>
     {isVercelFromFrontend && <VercelAnalytics debug={false} />}
     {isVercelFromFrontend && <VercelSpeedInsights debug={false} sampleRate={1 / 2} />}
     {hasGoogleAnalytics && <OptionalGoogleAnalytics />}
+    <Analytics />
 
   </>;
 
